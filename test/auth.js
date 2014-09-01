@@ -42,14 +42,13 @@ describe('authentication', function () {
         it('not found', function (done) {
             auth.validateCredentials({name: 'john', password: 'doe'}, function (error, results) {
                 expect(error).not.to.exist;
-                expect(results).to.exist;
-                expect(results).to.be.false;
+                expect(results).not.to.exist;
                 done();
             });
         });
 
         it('register', function (done) {
-            auth.registerUser({name: 'john', password: 'doe', email: 'john@doe.tld'}, function (error, results) {
+            auth.createUser({name: 'john', password: 'doe', email: 'john@doe.tld'}, function (error, results) {
                 expect(error).not.to.exist;
                 expect(results).to.exist;
                 done();
@@ -88,7 +87,7 @@ describe('authentication', function () {
         });
 
         it('register', function (done) {
-            auth.registerUser({name: 'john', password: 'doe', email: 'john@doe.tld'}, function (error, results) {
+            auth.createUser({name: 'john', password: 'doe', email: 'john@doe.tld'}, function (error, results) {
                 expect(error).not.to.exist;
                 expect(results).to.exist;
                 done();
@@ -105,11 +104,11 @@ describe('authentication', function () {
         });
     });
 
-    describe('registerUser', function () {
+    describe('createUser', function () {
         before(dropDb);
 
         it('works', function (done) {
-            auth.registerUser({name: 'john', password: 'doe', email: 'john@doe.tld'}, function (error, results) {
+            auth.createUser({name: 'john', password: 'doe', email: 'john@doe.tld'}, function (error, results) {
                 expect(error).not.to.exist;
                 expect(results).to.exist;
                 done();
@@ -117,7 +116,7 @@ describe('authentication', function () {
         });
 
         it('duplicate', function (done) {
-            auth.registerUser({name: 'john', password: 'doe', email: 'john@doe.tld'}, function (error, results) {
+            auth.createUser({name: 'john', password: 'doe', email: 'john@doe.tld'}, function (error, results) {
                 expect(error).to.exist;
                 expect(results).not.to.exist;
                 done();

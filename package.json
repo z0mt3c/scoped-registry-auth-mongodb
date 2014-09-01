@@ -23,7 +23,8 @@
   "homepage": "https://github.com/z0mt3c/scoped-registry-auth-mongodb",
   "dependencies": {
     "bcrypt": "^0.8.0",
-    "hoek": "^2.4.1"
+    "hoek": "^2.4.1",
+    "lodash": "^2.4.1"
   },
   "devDependencies": {
     "mongodb": "^1.4.9",

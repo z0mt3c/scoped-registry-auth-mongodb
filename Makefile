@@ -3,7 +3,7 @@ test:
 	./node_modules/.bin/lab
 
 test-cov:
-	./node_modules/.bin/lab -t 85 -c
+	./node_modules/.bin/lab -t 80 -c
 
 test-cov-html:
 	./node_modules/.bin/lab -r html -o ./coverage.html
