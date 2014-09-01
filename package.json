@@ -1,0 +1,32 @@
+{
+  "name": "scoped-registry-auth-mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test-cov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/z0mt3c/scoped-registry-auth-mongodb.git"
+  },
+  "keywords": [
+    "scoped-registry",
+    "auth",
+    "mongodb"
+  ],
+  "author": "Timo Behrmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/z0mt3c/scoped-registry-auth-mongodb/issues"
+  },
+  "homepage": "https://github.com/z0mt3c/scoped-registry-auth-mongodb",
+  "dependencies": {
+    "bcrypt": "^0.8.0",
+    "hoek": "^2.4.1"
+  },
+  "devDependencies": {
+    "mongodb": "^1.4.9",
+    "lab": "^4.2.0"
+  }
+}
