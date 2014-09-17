@@ -56,13 +56,30 @@ describe('authentication', function () {
         });
 
         it('valid', function (done) {
-            auth.validateCredentials({name: 'john', password: 'doe'}, function (error, results) {
+			var user = {name: 'john', password: 'doe'};
+			auth.validateCredentials(user, function (error, results) {
                 expect(error).not.to.exist;
                 expect(results).to.exist;
                 expect(results).to.be.true;
                 done();
             });
         });
+
+		it('create and validate Token', function(done) {
+			var user = {name: 'john', password: 'doe'};
+			auth.createTokenData(user, function (error, results) {
+				expect(error).not.to.exist;
+				expect(results).to.exist;
+
+				auth.validateToken(results, function(error, valid) {
+					expect(error).not.to.exist;
+					expect(valid).to.exist;
+					expect(valid).to.be.true;
+					done();
+				});
+			});
+		});
+
 
         it('invalid', function (done) {
             auth.validateCredentials({name: 'john', password: 'doe1'}, function (error, results) {
@@ -94,11 +111,11 @@ describe('authentication', function () {
             });
         });
 
-        it('user found', function (done) {
-            auth.validateToken({name: 'john'}, function (error, results) {
+        it('user found / wrong checksum', function (done) {
+            auth.validateToken({name: 'john', checksum: 'asdf'}, function (error, results) {
                 expect(error).not.to.exist;
                 expect(results).to.exist;
-                expect(results).to.be.true;
+                expect(results).to.be.false;
                 done();
             });
         });
