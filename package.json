@@ -27,7 +27,8 @@
     "lodash": "^2.4.1"
   },
   "devDependencies": {
-    "mongodb": "^1.4.9",
-    "lab": "^4.2.0"
+    "code": "^1.2.0",
+    "lab": "^5.0.0",
+    "mongodb": "^1.4.9"
   }
 }
